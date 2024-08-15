@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { productsRespository } from './products.repository';
 
 @Injectable()
 export class ProductsService {
-    getAllProducts(): string{
-        return "Bienvenido a la plaforma de FERRETERIA JRC CIA LTDA. Estas sobre la ruta de productos"
+    constructor(private productsRepository: productsRespository){}
+    getProducts(){
+        return this.productsRepository.getProducts()
     }
 }

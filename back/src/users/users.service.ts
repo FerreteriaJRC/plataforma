@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { UserRepository } from './user.repository';
 
 @Injectable()
 export class UsersService {
-    getAllUsers(): string{
-        return `Bienvenido a la plataforma de FERRETERIA JRC CIA LTDA, estas sobre la ruta de usuarios`
+    constructor(private userRepository: UserRepository){}
+    
+    getAllUsers(){
+        return this.userRepository.getAllUsers();
     }
 }

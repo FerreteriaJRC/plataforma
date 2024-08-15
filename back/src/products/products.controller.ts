@@ -7,7 +7,7 @@ export class ProductsController {
     constructor(private readonly productService: ProductsService){}
     
     @Get('list')
-    getAll(req: Request, res: Response, next: NextFunction): string{
-        return this.productService.getAllProducts()
+    getAll(req: Request, res: Response, next: NextFunction){
+        return this.productService.getProducts()
     }
 }

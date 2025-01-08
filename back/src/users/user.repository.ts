@@ -1,33 +1,74 @@
 import { Injectable } from "@nestjs/common";
+import { IUser } from "./interface/users.interface";
 
 @Injectable()
 
 export class UserRepository{
-    private Users = [
+    private users: IUser[] = [
         {
-            "nombre": "Jhon Darwin",
-            "apellidos": "Llanos Narvaez",
-            "cargo": "Lider de sistemas",
-            "correoPersonal": "jhondarwinllanosnarvaez@gmail",
-            "correoProfesional" : "sistemas@ferreteriajrc.com",
+            "id": 1,
+            "name": "Jhon Darwin",
+            "surname": "Llanos Narvaez",
+            "ocupation": "Lider de sistemas",
+            "emailPesonal": "jhondarwinllanosnarvaez@gmail",
+            "emailProfessional" : "sistemas@ferreteriajrc.com",
+            "urlImg": "sdf",
         },
         {
-            "nombre": "Anderson",
-            "apellidos": "Serrano",
-            "cargo": "Ventas Mostrador",
-            "correoPersonal": "anderson@gmail",
-            "correoProfesional" : null,
+            "id": 2,
+            "name": "Anderson",
+            "surname": "Serrano",
+            "ocupation": "Ventas Mostrador",
+            "emailPesonal": "anderson@gmail",
+            "emailProfessional" : null,
+            "urlImg": "sdf"
         },
         {
-            "nombre": "Lorena",
-            "apellidos": "Guerrero",
-            "cargo": "Caja",
-            "correoPersonal": "lorena@gmail",
-            "correoProfesional" : "caja@ferreteriajrc.com",
+            "id": 3,
+            "name": "Lorena",
+            "surname": "Guerrero",
+            "ocupation": "Caja",
+            "emailPesonal": "lorena@gmail",
+            "emailProfessional" : "caja@ferreteriajrc.com",
+            "urlImg": "usd"
         },
     ]
 
     getAllUsers(){
-        return this.Users;
+        return this.users;
+    }
+
+    getUserById(id: number): IUser | undefined{
+        return this.users.find(users => users.id === id)
+    }
+
+    createUser(user: IUser){
+        this.users = [...this.users, user]
+        return user
+    }
+
+    updateUserById(id: number, user: any){
+        const userIndex = this.users.findIndex(user => user.id === id)
+
+        if(userIndex === -1){
+            return "Usuario no encontrado repositorio"
+        }else{
+            this.users[userIndex] = {
+                ...this.users[userIndex],
+                ...user
+            }
+        }
+    }
+
+    deleteUserById(id: number){
+        const searchUserById = this.users.findIndex(user => user.id === id)
+        console.log(`Valor del id parametro ${id} valor de user id ${searchUserById}`)
+
+        if(searchUserById === -1){
+            return `El usuario con el id ${id} no existe`
+        }
+
+        this.users.splice(searchUserById, 1)
+        return "Producto eliminado correctamente"
     }
 }

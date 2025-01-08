@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { MiddlewareDateMiddleware } from './middleware-date/middleware-date.middleware';
+import { Middleware } from './middleware-date/middleware-date.middleware'; 
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

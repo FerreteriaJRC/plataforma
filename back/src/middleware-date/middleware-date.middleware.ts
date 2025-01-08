@@ -10,6 +10,7 @@ export class Middleware implements NestMiddleware{
 }
 
 export function MiddlewareDateMiddleware (req: Request, res: Response, next: NextFunction) {
-    console.log(`Ejecutando el Middleware en la ruta ${req.path} y en ${req.hostname}`)
+    const date = new Date();
+    console.log(`Ejecutando el Middleware en la ruta ${req.path} con el protocolo ${req.protocol} sobre las ${date}`)
     next();
 }

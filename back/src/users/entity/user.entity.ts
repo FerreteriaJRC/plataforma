@@ -1,11 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Collection, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { v4 as uuid } from 'uuid';
 
 @Entity({
     name: 'users'
 })
 
-export class User{
+export class User {
     @PrimaryGeneratedColumn('uuid')
     id: string = uuid()
     @Column()
@@ -13,11 +13,17 @@ export class User{
     @Column()
     surname: string;
     @Column()
+    nameUser: string;
+    @Column()
+    password: string;
+    @Column()
+    confirmPassword: string;
+    @Column()
     ocupation: string;
     @Column()
     emailPersonal: string;
     @Column()
     emailProfesional: string;
     @Column({default: 'vendedor'})
-    role: string;
+    rol: string;
 }

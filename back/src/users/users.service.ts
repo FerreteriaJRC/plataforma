@@ -21,11 +21,11 @@ export class UsersService {
         return this.userRepository.findOne({where: {id}})
     }
 
-    createUser(user: User){
-        console.log(user)
-        this.userRepository.save(user)
-        return ("Usuario creado")
-    }
+    // createUser(user: User){
+    //     console.log(user)
+    //     this.userRepository.save(user)
+    //     return ("Usuario creado")
+    // }
 
     updateUserById(id, user){
         const res = this.userRepository.update(id, user)

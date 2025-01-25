@@ -6,6 +6,7 @@ import { ok } from 'assert';
 import { User, User as UserEntity} from './entity/user.entity';
 import { Roles } from './roles.enum';
 import { RolesGuard } from 'src/guard/roles.guard';
+import { UpdateUserDto } from './dto/user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -30,20 +31,20 @@ export class UsersController {
         }
     }
 
-    @Post()
-    async createUser(@Body() user: UserEntity){
-        try {
-            return await this.usersService.createUser(user)
-        } catch (error) {
-            throw new HttpException({
-                status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Ocurrio un error al crear el usuario'
-            }, HttpStatus.INTERNAL_SERVER_ERROR)
-        }
-    }
+    // @Post()
+    // async createUser(@Body() user: UserEntity){
+    //     try {
+    //         return await this.usersService.createUser(user)
+    //     } catch (error) {
+    //         throw new HttpException({
+    //             status: HttpStatus.INTERNAL_SERVER_ERROR,
+    //             error: 'Ocurrio un error al crear el usuario'
+    //         }, HttpStatus.INTERNAL_SERVER_ERROR)
+    //     }
+    // }
 
     @Put(':id')
-    async updateUserById(@Param('id') id: User, @Body() user: User){
+    async updateUserById(@Param('id') id: User, @Body() user: UpdateUserDto){
         try{
             return await this.usersService.updateUserById(id, user);
         }catch(error){

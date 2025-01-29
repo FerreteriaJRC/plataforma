@@ -4,7 +4,7 @@ import { UsersService } from './users.service';
 import { IUser } from './interface/users.interface';
 import { ok } from 'assert';
 import { User, User as UserEntity} from './entity/user.entity';
-import { Roles } from './roles.enum';
+import { Roles } from 'src/enums/roles.enum';
 import { RolesGuard } from 'src/guard/roles.guard';
 import { UpdateUserDto } from './dto/user.dto';
 

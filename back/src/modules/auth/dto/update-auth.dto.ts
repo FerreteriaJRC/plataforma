@@ -1,7 +1,7 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsEmpty, IsStrongPassword, IsNotEmpty, IsString } from 'class-validator';
-import { UpdateUserDto } from 'src/users/dto/user.dto';
+import { UpdateUserDto } from 'src/modules/users/dto/user.dto';
 
 export class signInAuth extends PartialType(UpdateUserDto) {
 

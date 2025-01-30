@@ -5,17 +5,23 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from 'src/modules/users/entity/user.entity';
 import * as bcrypt from 'bcrypt';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
 
-  constructor(@InjectRepository(User) private userRepositoty: Repository<User>){}
+  constructor(
+    @InjectRepository(User) private userRepositoty: Repository<User>,
+    private jwtService: JwtService
+  ){}
   
-    async signIn(user: signInAuth): Promise<Omit<User, 'password' | 'confirmPassword' >> {
+    async signIn(user: signInAuth): Promise<{user: Omit<User, 'password' | 'confirmPassword' >, token: string}> {
       const foundUser = await this.userRepositoty.findOne({where: {nameUser: user.nameUser}});
       if(!foundUser){
         throw new BadRequestException('No existe cuenta para este usuario')
       }
+
+      const payload = { nameUser: foundUser.nameUser, sub: foundUser.id };
 
       const validation = await bcrypt.compare(user.password, foundUser.password);
       console.log(`user` , user.password, "foundUser", foundUser.password)
@@ -24,9 +30,11 @@ export class AuthService {
         throw new BadRequestException('Contraseña incorrecta')
       }
 
+      const token = this.jwtService.sign(payload);
+
       const { password, confirmPassword, ...result } = foundUser;
 
-      return result;
+      return {user: result, token};
     }
 
     async signUp(user: CreateAuthDto): Promise<Omit<User, 'password' | 'confirmPassword' >> {

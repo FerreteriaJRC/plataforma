@@ -5,9 +5,14 @@ import { UserRepository } from 'src/modules/users/user.repository';
 import { UsersModule } from 'src/modules/users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/modules/users/entity/user.entity';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User]), UsersModule],
+  imports: [TypeOrmModule.forFeature([User]), UsersModule, JwtModule.register({
+     global: true,
+     secret: "clave_secreta",
+     signOptions: {expiresIn: '1d'}})
+    ],
   controllers: [AuthController],
   providers: [AuthService],
 })

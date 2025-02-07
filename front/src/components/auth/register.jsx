@@ -1,22 +1,22 @@
-import styles from './login.module.css';
+import styles from '../../styles/Login.module.css';
 
 function Register() {
     return (
         <div className={styles.container}>
-            <section className={styles.imagen}>
-                <img src="../../assets/img/fondoFerreteria.jpg"/>
+            <section className={styles.section}>
+                <img src="/logo.png" alt="Logo" />
             </section>
             <section className={styles.section}>
-            <h2>Registrar Usuario</h2>
             <form>
+                <h2>Register</h2>
                 <label>
-                    <input className={styles.input} type="text" name="name" placeholder='Nombre'/>
+                    <input className={styles.input} type="text" name="name" placeholder='Nombres'/>
                 </label>
                 <label>
                     <input className={styles.input} type="email" name="surname" placeholder='Apellidos'/>
                 </label>
                 <label>
-                    <input className={styles.input} type="text" name="nameUser" placeholder='Usuario'/>
+                    <input className={styles.input} type="text" name="nameUser" placeholder='Nombre Usuario'/>
                 </label>
                 <label>
                     <input className={styles.input} type="password" name="password" placeholder='Contraseña'/>
@@ -25,7 +25,7 @@ function Register() {
                     <input className={styles.input} type="password" name="confirmPassword" placeholder='Confirmar Contraseña'/>
                 </label>
                 <label>
-                    <input className={styles.input} type="text" name="ocupation" placeholder="ocupacion"/>  
+                    <input className={styles.input} type="text" name="ocupation" placeholder='Ocupacion'/>  
                 </label>
                 <label>
                     <input className={styles.input} type="email" name="emailPersonal" placeholder='Correo Personal'/>
@@ -33,7 +33,7 @@ function Register() {
                 <label>
                     <input className={styles.input} type="email" name="emailProfessional" placeholder='Correo Profesional'/>
                 </label>
-                <button type="submit">Registrar</button>
+                <button className={styles.button}> Registrar </button>
             </form>
             </section>
         </div>

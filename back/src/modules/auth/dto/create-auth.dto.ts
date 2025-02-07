@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString, IsEmpty, IsStrongPassword, isString } from "class-validator";
+import { IsEmail, IsNotEmpty, IsString, IsEmpty, IsStrongPassword, isString, IsEnum } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateAuthDto {
@@ -78,5 +78,6 @@ export class CreateAuthDto {
             type: 'string'
         })
         @IsEmpty()
+        @IsEnum(['Vendedor', 'Administrador', 'Gerente'])
         rol: string;
 }

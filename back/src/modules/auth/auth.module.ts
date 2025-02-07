@@ -10,7 +10,7 @@ import { JwtModule } from '@nestjs/jwt';
 @Module({
   imports: [TypeOrmModule.forFeature([User]), UsersModule, JwtModule.register({
      global: true,
-     secret: "clave_secreta",
+     secret: process.env.JWT_SECRET || 'clavesecret',
      signOptions: {expiresIn: '1d'}})
     ],
   controllers: [AuthController],

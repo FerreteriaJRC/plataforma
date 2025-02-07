@@ -1,42 +1,41 @@
+import styles from './login.module.css';
+
 function Register() {
     return (
-        <div>
-            <h2>Register</h2>
+        <div className={styles.container}>
+            <section className={styles.imagen}>
+                <img src="../../assets/img/fondoFerreteria.jpg"/>
+            </section>
+            <section className={styles.section}>
+            <h2>Registrar Usuario</h2>
             <form>
                 <label>
-                    Nombres:
-                    <input type="text" name="name" />
+                    <input className={styles.input} type="text" name="name" placeholder='Nombre'/>
                 </label>
                 <label>
-                    Apellidos:
-                    <input type="email" name="surname" />
+                    <input className={styles.input} type="email" name="surname" placeholder='Apellidos'/>
                 </label>
                 <label>
-                    Nombre Usuario:
-                    <input type="text" name="nameUser" />
+                    <input className={styles.input} type="text" name="nameUser" placeholder='Usuario'/>
                 </label>
                 <label>
-                    Contraseña:
-                    <input type="password" name="password" />
+                    <input className={styles.input} type="password" name="password" placeholder='Contraseña'/>
                 </label>
                 <label>
-                    Confirmar Contraseña:
-                    <input type="password" name="confirmPassword"/>
+                    <input className={styles.input} type="password" name="confirmPassword" placeholder='Confirmar Contraseña'/>
                 </label>
                 <label>
-                    Ocupacion:
-                    <input type="text" name="ocupation" />  
+                    <input className={styles.input} type="text" name="ocupation" placeholder="ocupacion"/>  
                 </label>
                 <label>
-                    Email Personal:
-                    <input type="email" name="emailPersonal" />
+                    <input className={styles.input} type="email" name="emailPersonal" placeholder='Correo Personal'/>
                 </label>
                 <label>
-                    Email Profesional:
-                    <input type="email" name="emailProfessional" />
+                    <input className={styles.input} type="email" name="emailProfessional" placeholder='Correo Profesional'/>
                 </label>
-                <button type="submit">Register</button>
+                <button type="submit">Registrar</button>
             </form>
+            </section>
         </div>
     )
 }

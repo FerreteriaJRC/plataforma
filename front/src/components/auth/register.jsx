@@ -4,7 +4,7 @@ function Register() {
     return (
         <div className={styles.container}>
             <section className={styles.section}>
-                <img src="/logo.png" alt="Logo" />
+                <img src="../../../public/assets/img/logoCuadrado.png" alt="Logo" />
             </section>
             <section className={styles.section}>
             <form className={styles.form}>

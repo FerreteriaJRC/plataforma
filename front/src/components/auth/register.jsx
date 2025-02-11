@@ -4,10 +4,10 @@ function Register() {
     return (
         <div className={styles.container}>
             <section className={styles.section}>
-                <img src="/logo.png" alt="Logo" />
+                <img src="../../../public/assets/img/logoCuadrado.png" alt="Logo" />
             </section>
             <section className={styles.section}>
-            <form>
+            <form className={styles.form}>
                 <h2>Register</h2>
                 <label>
                     <input className={styles.input} type="text" name="name" placeholder='Nombres'/>

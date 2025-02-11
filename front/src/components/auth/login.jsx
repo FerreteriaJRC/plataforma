@@ -1,21 +1,22 @@
-import styles from '../../styles/Login.module.css';
+import 'tailwindscss'
+// import Image from 'next/image';
 
 function Login() {
   return (
-    <div className={styles.container}>
-      <section className={styles.section}>
-        <img src="/logo.png" alt="Logo" />
+    <div className="flex flex-nowrap m-8 bg-sky-400">
+      <section>
+        <img src="assets/img/logoCuadrado.png" alt="logo" />
       </section>
-      <section className={styles.section}>
+      <section>
       <form>
       <h2>Iniciar Sesion</h2>
         <label>
-          <input className={styles.input} type="text" name="nameUser" placeholder='Nombre Usuario'/>
+          <input className="" type="text" name="nameUser" placeholder='Nombre Usuario'/>
         </label>
         <label>
-          <input className={styles.input} type="password" name="password" placeholder='Contraseña'/>
+          <input className="" type="password" name="password" placeholder='Contraseña'/>
         </label>
-        <button className={styles.button} type="submit">Ingresar</button>
+        <button className="transition duration-700 ease-in-out" type="submit">Ingresar</button>
       </form>
       </section>
     </div>

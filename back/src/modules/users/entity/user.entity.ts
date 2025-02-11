@@ -17,13 +17,11 @@ export class User {
     @Column()
     password: string;
     @Column()
-    confirmPassword: string;
-    @Column()
     ocupation: string;
     @Column()
     emailPersonal: string;
     @Column()
     emailProfesional: string;
-    @Column({default: 'vendedor'})
+    @Column({default: 'Vendedor'})
     rol: string;
 }

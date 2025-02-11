@@ -2,7 +2,6 @@ import { Controller, Get, Req, Res, Next, Post, Param, Body, Delete, Put, Query,
 import { Request, Response, NextFunction} from 'express'; // Asegúrate de tener estas importaciones
 import { ProductsService } from './products.service'; // Asegúrate de que el servicio esté importado correctamente
 import { IProducts } from './interface/products.interface';
-import { AdminGuard } from 'src/guard/admin.guard';
 
 @Controller('products')
 export class ProductsController {
@@ -22,7 +21,6 @@ export class ProductsController {
     }
 
     @Get('admin')
-    @UseGuards(AdminGuard)
     getAdmin(){
         return this.productService.getAdmin();
     }

@@ -1,0 +1,47 @@
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.navbar .leftLinks a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar .left-links a{
+    color: red;
+    text-decoration: none;
+}
+
+.nav .leftLinks a:hover{
+    background-color: #ff5733;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.navbar .rightImage{
+    margin-right: auto; /* Empuja la imagen a la derecha */
+    width: 20px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}

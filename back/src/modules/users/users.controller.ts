@@ -1,20 +1,42 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, Put, Res, Req, Next, Delete, HttpStatus, HttpException, UseGuards} from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Post, Put, Res, Req, Next, Delete, HttpStatus, HttpException, UseGuards, Headers} from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { UsersService } from './users.service';
 import { IUser } from './interface/users.interface';
-import { ok } from 'assert';
 import { User, User as UserEntity} from './entity/user.entity';
-import { Roles } from 'src/enums/roles.enum';
+import { Role } from 'src/enums/roles.enum';
 import { RolesGuard } from 'src/guard/roles.guard';
 import { UpdateUserDto } from './dto/user.dto';
+import { Rolesapp } from 'src/decorators/roles.decorator';
+import { AuthGuard } from 'src/guard/auth.guard';
 
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService
     ){}
 
+    
+    @UseGuards(AuthGuard, RolesGuard)
+    @Rolesapp(Role.Admin)
+    @Get('admin')
+    getUserAdmin(){
+        return 'Accediste como Admin';
+    }
+
+    @UseGuards(AuthGuard, RolesGuard)
+    @Rolesapp(Role.General)
+    @Get('general')
+    getUserUser(){
+        return 'Accediste como general';
+    }
+
+    @UseGuards(AuthGuard, RolesGuard)
+    @Rolesapp(Role.Seller)
+    @Get('seller')
+    getUserSeller(){
+        return 'Accediste como Seller';
+    }
+
     @Get()
-    //@UseGuards(RolesGuard)
     async getAllUsersDb(){
         return await this.usersService.getUserDb();
     }

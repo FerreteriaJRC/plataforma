@@ -15,16 +15,16 @@ export class AuthService {
     private jwtService: JwtService
   ){}
   
-    async signIn(user: signInAuth): Promise<{user: Omit<User, 'password' | 'confirmPassword' >, token: string}> {
+    async signIn(user: signInAuth): Promise<{user: Omit<User, 'password' | 'confirmPassword' >, token: string, succes: string}> {
       const foundUser = await this.userRepositoty.findOne({where: {nameUser: user.nameUser}});
       if(!foundUser){
         throw new BadRequestException('No existe cuenta para este usuario')
       }
 
-      const payload = { nameUser: foundUser.nameUser, sub: foundUser.id };
+      const payload = { nameUser: foundUser.nameUser, sub: foundUser.id , rol: foundUser.rol};
+      console.log(`Valor de payload ${JSON.stringify(payload)}`);
 
       const validation = await bcrypt.compare(user.password, foundUser.password);
-      console.log(`user` , user.password, "foundUser", foundUser.password)
 
       if(!validation){
         throw new BadRequestException('Contraseña incorrecta')
@@ -32,9 +32,9 @@ export class AuthService {
 
       const token = this.jwtService.sign(payload);
 
-      const { password, confirmPassword, ...result } = foundUser;
+      const { password, ...result } = foundUser;
 
-      return {user: result, token};
+      return {succes: "Usuario Logueado", user: result, token};
     }
 
     async signUp(user: CreateAuthDto): Promise<Omit<User, 'password' | 'confirmPassword' >> {
@@ -57,7 +57,7 @@ export class AuthService {
 
       const savedUser = await this.userRepositoty.save(newUser);
 
-      const { password, confirmPassword, ...result } = savedUser;
+      const { password, ...result } = savedUser;
       return result;
     }
 }

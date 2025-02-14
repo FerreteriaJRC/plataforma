@@ -3,6 +3,11 @@ export interface ILoginProps{
     password: string
 }
 
+export interface ILoginErrors{
+    username?: string,
+    error?: string
+}
+
 export interface IRegisterProps{
     name: string,
     surname: string,
@@ -18,4 +23,15 @@ export interface AuthResponse{
     succes: string
     user: IRegisterProps
     token: string
+}
+
+export interface IUser{
+    id: string,
+    name?: string,
+    surname?: string,
+    nameUser?: string,
+    ocupation?: string,
+    emailPersonal?: string,
+    emailProfesional?: string,
+    rol?: string
 }

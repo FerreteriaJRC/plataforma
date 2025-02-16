@@ -1,41 +1,54 @@
-import styles from '../../styles/Login.module.css';
+import 'tailwindscss';
 
 function Register() {
     return (
-        <div className={styles.container}>
-            <section className={styles.section}>
-                <img src="../../../public/assets/img/logoCuadrado.png" alt="Logo" />
+        <div className="flex items-center justify-center min-h-screen bg-sky-400">
+            <div className="bg-white p-8 rounded-lg shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8">
+            <section className='flex items-center justify-center'>
+                <img src="../../../public/assets/img/logoCuadrado.png" alt="Logo" className='max-wfull h-auto'/>
             </section>
-            <section className={styles.section}>
-            <form className={styles.form}>
-                <h2>Register</h2>
+            <section className="space-y-4">
+            <form className="">
+                <h2 className='text-2xl font-bold mb-4 text-center'>Register</h2>
+                <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
+                    <label>
+                        <input className="w-full p-2 border border-gray-300 rounded" type="text" name="name" placeholder='Nombres'/>
+                    </label>
+                    <label>
+                        <input className="w-full p-2 border border-gray-300 rounded" type="email" name="surname" placeholder='Apellidos'/>
+                    </label>
+                </div>
+                
+                <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
+                    <label>
+                        <input className="" type="text" name="nameUser" placeholder='Nombre Usuario'/>
+                    </label>
+                    <label>
+                        <input className="" type="password" name="password" placeholder='Contraseña'/>
+                    </label>
+                </div>
+
+                <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
+                    <label>
+                        <input className="" type="password" name="confirmPassword" placeholder='Confirmar Contraseña'/>
+                    </label>
+                    <label>
+                        <input className="" type="text" name="ocupation" placeholder='Ocupacion'/>  
+                    </label>
+                </div>
+                
+                <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                 <label>
-                    <input className={styles.input} type="text" name="name" placeholder='Nombres'/>
+                    <input className="w-full" type="email" name="emailPersonal" placeholder='Correo Personal'/>
                 </label>
                 <label>
-                    <input className={styles.input} type="email" name="surname" placeholder='Apellidos'/>
+                    <input className="" type="email" name="emailProfessional" placeholder='Correo Profesional'/>
                 </label>
-                <label>
-                    <input className={styles.input} type="text" name="nameUser" placeholder='Nombre Usuario'/>
-                </label>
-                <label>
-                    <input className={styles.input} type="password" name="password" placeholder='Contraseña'/>
-                </label>
-                <label>
-                    <input className={styles.input} type="password" name="confirmPassword" placeholder='Confirmar Contraseña'/>
-                </label>
-                <label>
-                    <input className={styles.input} type="text" name="ocupation" placeholder='Ocupacion'/>  
-                </label>
-                <label>
-                    <input className={styles.input} type="email" name="emailPersonal" placeholder='Correo Personal'/>
-                </label>
-                <label>
-                    <input className={styles.input} type="email" name="emailProfessional" placeholder='Correo Profesional'/>
-                </label>
-                <button className={styles.button}> Registrar </button>
+                </div>
+                <button className=""> Registrar </button>
             </form>
             </section>
+            </div>
         </div>
     )
 }

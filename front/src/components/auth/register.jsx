@@ -12,40 +12,41 @@ function Register() {
                 <h2 className='text-2xl font-bold mb-4 text-center'>Register</h2>
                 <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                     <label>
-                        <input className="w-full p-2 border border-gray-300 rounded" type="text" name="name" placeholder='Nombres'/>
+                        <input className="p-2 m-2 border border-gray-300 rounded" type="text" name="name" placeholder='Nombres'/>
                     </label>
                     <label>
-                        <input className="w-full p-2 border border-gray-300 rounded" type="email" name="surname" placeholder='Apellidos'/>
+                        <input className="p-2 m-2 border border-gray-300 rounded" type="email" name="surname" placeholder='Apellidos'/>
                     </label>
                 </div>
                 
                 <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                     <label>
-                        <input className="" type="text" name="nameUser" placeholder='Nombre Usuario'/>
+                        <input className="p-2 m-2 border border-gray-300 rounded" type="text" name="nameUser" placeholder='Nombre Usuario'/>
                     </label>
                     <label>
-                        <input className="" type="password" name="password" placeholder='Contraseña'/>
+                        <input className="p-2 m-2 border border-gray-300 rounded" type="text" name="ocupation" placeholder='Ocupacion'/>  
                     </label>
                 </div>
 
                 <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                    <label>
-                        <input className="" type="password" name="confirmPassword" placeholder='Confirmar Contraseña'/>
+                <label>
+                        <input className="p-2 m-2 border border-gray-300 rounded" type="password" name="password" placeholder='Contraseña'/>
                     </label>
                     <label>
-                        <input className="" type="text" name="ocupation" placeholder='Ocupacion'/>  
+                        <input className="p-2 m-2 border border-gray-300 rounded" type="password" name="confirmPassword" placeholder='Confirmar Contraseña'/>
                     </label>
                 </div>
                 
                 <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
                 <label>
-                    <input className="w-full" type="email" name="emailPersonal" placeholder='Correo Personal'/>
+                    <input className="p-2 m-2 border border-gray-300 rounded" type="email" name="emailPersonal" placeholder='Correo Personal'/>
                 </label>
                 <label>
-                    <input className="" type="email" name="emailProfessional" placeholder='Correo Profesional'/>
+                    <input className="p-2 m-2 border border-gray-300 rounded" type="email" name="emailProfessional" placeholder='Correo Profesional'/>
                 </label>
                 </div>
-                <button className=""> Registrar </button>
+                <button className="w-full mt-2 mb-2 p-2 bg-red-500 text-white rounded hover:bg-red-800 transition duration-300 ease-in-out"> Registrar </button>
+                <a href="#home"><p className='text-center text-gray-600'>Olvide mi Contraseña</p></a>
             </form>
             </section>
             </div>

@@ -35,3 +35,11 @@ export interface IUser{
     emailProfesional?: string,
     rol?: string
 }
+
+export interface IUserContextProps {
+    userNormal: IUser | null;
+    setUser: (user: IUser | null) => void;
+    token: string | null;
+    setToken: (token: string | null) => void;
+    logoutUser: () => void;
+}

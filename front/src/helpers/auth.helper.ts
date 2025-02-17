@@ -53,3 +53,7 @@ export const validateToken = async(token: string) => {
     const data = await res.json();
     return data;
 }
+
+export const validateLoginForm = {
+    
+}

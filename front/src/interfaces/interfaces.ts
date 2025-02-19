@@ -5,7 +5,7 @@ export interface ILoginProps{
 
 export interface ILoginErrors{
     username?: string,
-    error?: string
+    password?: string
 }
 
 export interface IRegisterProps{
@@ -20,9 +20,11 @@ export interface IRegisterProps{
 }
 
 export interface AuthResponse{
-    succes: string
-    user: IRegisterProps
-    token: string
+    data: {
+        token: string
+        user: IUser
+    }
+    loggin: boolean
 }
 
 export interface IUser{

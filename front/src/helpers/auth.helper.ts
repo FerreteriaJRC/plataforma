@@ -3,8 +3,6 @@ import { ILoginProps, IRegisterProps, AuthResponse } from "../interfaces/interfa
 
 const APIURL = process.env.NEXT_PUBLIC_API_URL;
 
-// const APIURL = process.env.NEXT_PUBLIC_API_URL;
-
 export const register = async(
     userData: IRegisterProps
 ):Promise<AuthResponse> => {
@@ -25,17 +23,21 @@ export const register = async(
 export const login = async(
     userData: ILoginProps
 ):Promise<AuthResponse> => {
-    const res = await fetch("http://localhost:3000/auth/signup", {
+    const res = await fetch("http://localhost:3000/auth/signin", {
         method: "POST",
         headers: {
-            "content-type": "aplication/json",
+            "content-type": "application/json",
         },
-        body: JSON.stringify(userData)
-    })
+        body: JSON.stringify(userData),
+    });
 
-    const data = await res.json();
-    return data
-}
+    if(!res.ok){
+        console.log("Error al iniciar sesion")
+    }
+
+    const data: AuthResponse = await res.json();
+    return data;
+};
 
 export const validateToken = async(token: string) => {
     const res = await fetch(`${APIURL}auth/validate-token`, {
@@ -52,8 +54,4 @@ export const validateToken = async(token: string) => {
 
     const data = await res.json();
     return data;
-}
-
-export const validateLoginForm = {
-    
 }

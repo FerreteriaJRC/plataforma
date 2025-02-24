@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { ILoginProps, IRegisterProps, AuthResponse } from "../interfaces/interfaces"
 
-const APIURL = process.env.NEXT_PUBLIC_API_URL;
+// const APIURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const register = async(
     userData: IRegisterProps
@@ -40,7 +40,7 @@ export const login = async(
 };
 
 export const validateToken = async(token: string) => {
-    const res = await fetch(`${APIURL}auth/validate-token`, {
+    const res = await fetch(`http://localhost:3000/auth/validate-token`, {
         method: "POST",
         headers: {
             Authorization: `Bearer ${token}`,

@@ -19,21 +19,21 @@ const Login = () => {
   // const { setUser } = useUserContext(); //!Esta linea se esta tirando el programa
   // const router = useRouter();
 
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   setValues({...values, [name]: value})
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+     const { name, value } = e.target;
+     setValues({...values, [name]: value})
 
-  //   setErrors(validateLoginForm({...values, [name]: value}));//Terminar de corregir el validate login form
-  // }
+     setErrors(validateLoginForm({...values, [name]: value}));//Terminar de corregir el validate login form
+   }
 
-  // const handleLogin = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   const validateErrors = validateLoginForm(values);
-  //   setErrors(validateErrors)
+   const handleLogin = async (e: React.FormEvent) => {
+     e.preventDefault();
+     const validateErrors = validateLoginForm(values);
+     setErrors(validateErrors)
 
-  //   if (Object.keys(validateErrors).length > 0){
-  //     return;
-  //   }
+     if (Object.keys(validateErrors).length > 0){
+       return;
+     }
 
   //   try {
   //       const response = await login(values);

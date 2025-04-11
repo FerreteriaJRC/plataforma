@@ -4,21 +4,31 @@ import { IUser } from './interface/users.interface';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entity/user.entity';
 import { Repository } from 'typeorm';
+import $ from 'jquery';
 
 @Injectable()
 export class UsersService {
     constructor(
         //private userRepository: UserRepository, 
-        //@Inject('ACCESS_TOKEN') private accessToken: string,
+        @Inject('ACCESS_TOKEN') private accessToken: string,
         @InjectRepository(User) private userRepository: Repository<User>
     ){}
 
-    getUserDb(){
+    async getUserDb(){
+         //return this.userRepository.find()
+    //      const user = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+    //   .then(response => response.json())
+    //   .then(json => console.log(json))
         return this.userRepository.find()
     }
 
     getUserByIdDb(id: any){
-        return this.userRepository.findOne({where: {id}})
+        if(this.accessToken === "Esta es mi clve secreta"){
+            return this.userRepository.findOne({where: {id}})
+        }else{
+            return "No tiene acceso a la informacion"
+        }
+        
     }
 
     // createUser(user: User){

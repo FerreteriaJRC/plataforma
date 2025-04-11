@@ -3,11 +3,18 @@ import { AppModule } from './app.module';
 import { MiddlewareDateMiddleware } from './middleware-date/middleware-date.middleware';
 import { Middleware } from './middleware-date/middleware-date.middleware';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import * as cors from 'cors';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.use(MiddlewareDateMiddleware);
+  app.use(
+    cors({
+      origin: 'http://localhost:5173',
+      credentials: true
+    })
+  );
   
+  // app.use(new MiddlewareDateMiddleware().use);
 
   const swaggerConfig = new DocumentBuilder()
   .setTitle('Plataforma Ferreteria JRC 2025')

@@ -1,6 +1,6 @@
-import { ILoginErrors, ILoginProps } from "../interfaces/interfaces";
+import { ILoginErrors, ILoginRequest } from "../interfaces/interfaces";
 
-export function validateLoginForm(values: ILoginProps): ILoginErrors {
+export function validateLoginForm(values: ILoginRequest): ILoginErrors {
     const errors: ILoginErrors = {}
 
     //* Validacion para el campo username
